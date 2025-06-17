@@ -66,6 +66,33 @@
     button:hover {
       background-color: #cc0000;
     }
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #111;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+      border-top: 1px solid #333;
+      z-index: 999;
+    }
+
+    .bottom-nav a {
+      text-align: center;
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.85rem;
+    }
+
+    .bottom-nav img {
+      width: 24px;
+      height: 24px;
+      display: block;
+      margin: 0 auto 4px;
+    }
   </style>
 </head>
 <body>
@@ -107,6 +134,30 @@
 
       <button type="submit">Continuar</button>
     </form>
+  </div>
+
+  <!-- Abas fixas -->
+  <div class="bottom-nav">
+    <a href="index.html">
+      <img src="icons/inicio.png" alt="Início">
+      Início
+    </a>
+    <a href="receita.html">
+      <img src="icons/receita.png" alt="Receita">
+      Receita
+    </a>
+    <a href="aulas.html">
+      <img src="icons/aulas.png" alt="Aulas">
+      Aulas
+    </a>
+    <a href="progresso.html">
+      <img src="icons/progresso.png" alt="Progresso">
+      Progresso
+    </a>
+    <a href="guia.html">
+      <img src="icons/guia.png" alt="Guia">
+      Guia
+    </a>
   </div>
 </body>
 </html>
