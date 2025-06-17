@@ -73,10 +73,13 @@
     }
 
     .imagem-receita {
-      width: 100%;
-      border-radius: 12px;
-      margin-top: 10px;
-    }
+  width: 200px;         /* Reduz o tamanho */
+  height: 200px;        /* Torna quadrada */
+  object-fit: cover;    /* Garante o recorte proporcional */
+  border-radius: 20px;  /* Bordas arredondadas */
+  display: block;
+  margin: 20px auto;    /* Centraliza a imagem */
+}
 
     .instrucao {
       margin-top: 15px;
