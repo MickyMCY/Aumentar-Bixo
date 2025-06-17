@@ -1,21 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Progresso - Técnica Xingondo</title><link rel="stylesheet" href="style.css"></head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Progresso</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 <body>
-  <div class="container">
+  <main class="content">
     <h1>📈 Teu Progresso</h1>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(60px,1fr));gap:10px">
-      <script>for(let i=1;i<=30;i++){document.write(`<div style="background:#111;padding:10px;text-align:center;border:2px solid #ff0000;border-radius:6px;">Dia ${i}</div>`)};</script>
-    </div>
+    <p>Visualiza tua evolução semanal:</p>
+    <ul>
+      <li>Semana 1: ✅ Concluído</li>
+      <li>Semana 2: ✅ Concluído</li>
+      <li>Semana 3: 🔄 Em andamento</li>
+      <li>Semana 4: 🔒 Bloqueado</li>
+    </ul>
+  </main>
+
+  <div class="bottom-nav">
+    <a href="index.html">🏠<br>Início</a>
+    <a href="receita.html">🧪<br>Receita</a>
+    <a href="aulas.html">📚<br>Aulas</a>
+    <a href="progresso.html">📈<br>Progresso</a>
+    <a href="guia.html">📘<br>Guia</a>
   </div>
-  <a href="https://wa.me/SEUNUMERO" class="whatsapp-btn" target="_blank">📲 Precisa de ajuda?</a>
-  <nav class="menu-rodape">
-    <a href="index.html">🏠 Início</a>
-    <a href="receita.html">🍽️ Receita</a>
-    <a href="aulas.html">📚 Aulas</a>
-    <a href="progresso.html" class="ativa">📈 Progresso</a>
-    <a href="guia.html">ℹ️ Guia</a>
-  </nav>
 </body>
 </html>
