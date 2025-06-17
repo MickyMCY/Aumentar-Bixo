@@ -1,1 +1,69 @@
-<!DOCTYPE html><html lang='pt'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><title>Progresso</title><link rel='stylesheet' href='style.css'></head><body><div class='container'><h1>📅 Progresso</h1><div class='grid'><button onclick='marcar(this)'>1</button><button onclick='marcar(this)'>2</button><button onclick='marcar(this)'>3</button><button onclick='marcar(this)'>4</button><button onclick='marcar(this)'>5</button><button onclick='marcar(this)'>6</button><button onclick='marcar(this)'>7</button><button onclick='marcar(this)'>8</button><button onclick='marcar(this)'>9</button><button onclick='marcar(this)'>10</button><button onclick='marcar(this)'>11</button><button onclick='marcar(this)'>12</button><button onclick='marcar(this)'>13</button><button onclick='marcar(this)'>14</button><button onclick='marcar(this)'>15</button><button onclick='marcar(this)'>16</button><button onclick='marcar(this)'>17</button><button onclick='marcar(this)'>18</button><button onclick='marcar(this)'>19</button><button onclick='marcar(this)'>20</button><button onclick='marcar(this)'>21</button><button onclick='marcar(this)'>22</button><button onclick='marcar(this)'>23</button><button onclick='marcar(this)'>24</button><button onclick='marcar(this)'>25</button><button onclick='marcar(this)'>26</button><button onclick='marcar(this)'>27</button><button onclick='marcar(this)'>28</button><button onclick='marcar(this)'>29</button><button onclick='marcar(this)'>30</button><button onclick='marcar(this)'>31</button></div></div><div class='bottom-nav'><a href='index.html'>🏠<br>Início</a><a href='receita.html'>📋<br>Receita</a><a href='aulas.html'>🎥<br>Aulas</a><a href='progresso.html'>📅<br>Progresso</a><a href='guia.html'>📖<br>Guia</a></div><a href='https://wa.me/258840000000' class='whatsapp-float' target='_blank'>💬</a><script>function marcar(btn){btn.classList.toggle('ativo');}</script></body></html>
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progresso</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>📅 Progresso</h1>
+    <p class="subtexto">Marca os dias completados no teu progresso.</p>
+    
+    <div class="grid">
+      <!-- Botões de 1 a 31 -->
+      <!-- Gerado manualmente para manter controle visual -->
+      <button onclick="marcar(this)">1</button>
+      <button onclick="marcar(this)">2</button>
+      <button onclick="marcar(this)">3</button>
+      <button onclick="marcar(this)">4</button>
+      <button onclick="marcar(this)">5</button>
+      <button onclick="marcar(this)">6</button>
+      <button onclick="marcar(this)">7</button>
+      <button onclick="marcar(this)">8</button>
+      <button onclick="marcar(this)">9</button>
+      <button onclick="marcar(this)">10</button>
+      <button onclick="marcar(this)">11</button>
+      <button onclick="marcar(this)">12</button>
+      <button onclick="marcar(this)">13</button>
+      <button onclick="marcar(this)">14</button>
+      <button onclick="marcar(this)">15</button>
+      <button onclick="marcar(this)">16</button>
+      <button onclick="marcar(this)">17</button>
+      <button onclick="marcar(this)">18</button>
+      <button onclick="marcar(this)">19</button>
+      <button onclick="marcar(this)">20</button>
+      <button onclick="marcar(this)">21</button>
+      <button onclick="marcar(this)">22</button>
+      <button onclick="marcar(this)">23</button>
+      <button onclick="marcar(this)">24</button>
+      <button onclick="marcar(this)">25</button>
+      <button onclick="marcar(this)">26</button>
+      <button onclick="marcar(this)">27</button>
+      <button onclick="marcar(this)">28</button>
+      <button onclick="marcar(this)">29</button>
+      <button onclick="marcar(this)">30</button>
+      <button onclick="marcar(this)">31</button>
+    </div>
+  </div>
+
+  <!-- MENU INFERIOR -->
+  <div class="menu">
+    <a href="index.html">🏠<br>Início</a>
+    <a href="receita.html">📋<br>Receita</a>
+    <a href="exercicios.html">🍆<br>Exercícios</a>
+    <a href="progresso.html">📅<br>Progresso</a>
+    <a href="guia.html">📖<br>Guia</a>
+  </div>
+
+  <!-- WHATSAPP -->
+  <a href="https://wa.me/258840000000" class="whatsapp-float" target="_blank">💬</a>
+
+  <script>
+    function marcar(btn) {
+      btn.classList.toggle('ativo');
+    }
+  </script>
+</body>
+</html>
