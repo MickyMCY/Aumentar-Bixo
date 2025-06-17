@@ -1,0 +1,73 @@
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding-bottom: 80px;
+}
+
+.hero, .content {
+  padding: 20px;
+  text-align: center;
+}
+
+.cta {
+  background: red;
+  color: white;
+  padding: 12px 20px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 15px;
+  border-radius: 8px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #111;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+}
+
+.footer a {
+  color: red;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.ingredientes {
+  list-style: none;
+  padding: 0;
+}
+
+.ingredientes li {
+  background: #111;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.destaque {
+  font-style: italic;
+  margin-top: 20px;
+}
+
+.importante {
+  color: red;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.whatsapp-support {
+  position: fixed;
+  bottom: 90px;
+  right: 15px;
+  background: red;
+  padding: 10px 15px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 20px;
+  font-size: 14px;
+}
