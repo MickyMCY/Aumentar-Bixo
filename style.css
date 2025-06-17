@@ -1,73 +1,81 @@
 body {
+  margin: 0;
+  font-family: Arial, sans-serif;
   background-color: #000;
   color: #fff;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding-bottom: 80px;
+  padding: 20px;
 }
 
-.hero, .content {
-  padding: 20px;
+.container {
+  max-width: 480px;
+  margin: auto;
   text-align: center;
 }
 
-.cta {
-  background: red;
+h1, h2, h3 {
+  color: red;
+}
+
+.subtitulo {
+  font-size: 18px;
+  color: #ccc;
+}
+
+.botao-principal {
+  background-color: red;
   color: white;
-  padding: 12px 20px;
+  padding: 12px 25px;
   text-decoration: none;
-  display: inline-block;
-  margin-top: 15px;
   border-radius: 8px;
-}
-
-.footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background: #111;
-  display: flex;
-  justify-content: space-around;
-  padding: 10px 0;
-}
-
-.footer a {
-  color: red;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.ingredientes {
-  list-style: none;
-  padding: 0;
-}
-
-.ingredientes li {
-  background: #111;
-  margin: 5px 0;
-  padding: 10px;
-  border-radius: 6px;
-}
-
-.destaque {
-  font-style: italic;
+  display: inline-block;
   margin-top: 20px;
+  font-size: 18px;
 }
 
-.importante {
-  color: red;
-  margin-top: 10px;
-  font-size: 13px;
-}
-
-.whatsapp-support {
+.whatsapp-float {
   position: fixed;
-  bottom: 90px;
-  right: 15px;
-  background: red;
-  padding: 10px 15px;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 20px;
+  bottom: 20px;
+  right: 20px;
+}
+
+.whatsapp-float img {
+  width: 50px;
+}
+
+.temporizador {
+  margin: 15px 0;
+}
+
+#contador {
+  font-size: 24px;
+  color: red;
+}
+
+input[type="file"] {
+  margin: 10px 0;
+  color: white;
+}
+
+.card {
+  background: #111;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 10px;
+  box-shadow: 0 0 8px red;
+}
+
+.progresso {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+}
+
+.dia {
+  background-color: #222;
+  padding: 8px;
+  width: 60px;
+  border-radius: 5px;
+  color: white;
   font-size: 14px;
 }
