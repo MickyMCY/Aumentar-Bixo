@@ -4,151 +4,134 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Técnica Xingondo 🍆</title>
-  <link rel="stylesheet" href="style.css" />
   <style>
     body {
+      margin: 0;
+      padding: 0;
       background-color: #000;
       color: #fff;
       font-family: Arial, sans-serif;
-      margin: 0;
-      padding-bottom: 80px; /* espaço para o rodapé */
     }
 
     h1 {
       text-align: center;
-      color: red;
-      font-size: 26px;
-      margin-top: 20px;
+      background-color: #111;
+      padding: 20px;
+      font-size: 1.6rem;
+      color: #ff0000;
+      margin: 0;
     }
 
-    .descricao {
+    .container {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
       text-align: center;
-      margin: 10px 20px;
-      font-size: 16px;
     }
 
-    .imagem-topo {
-      width: 90%;
+    .imagem-ilustrativa {
+      width: 100%;
       max-width: 300px;
-      display: block;
       margin: 20px auto;
-      border-radius: 15px;
-      background-color: #fff;
-      padding: 5px;
+      display: block;
+      border-radius: 20px;
     }
 
     .box-exercicio {
-      background-color: #fff;
-      color: #000;
-      margin: 15px 20px;
-      border-radius: 15px;
-      padding: 15px;
-      box-shadow: 0 0 10px #ff0000;
+      background-color: #111;
+      border-radius: 16px;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
       cursor: pointer;
-      transition: transform 0.2s;
     }
 
     .box-exercicio:hover {
       transform: scale(1.02);
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
     }
 
-    .box-exercicio span {
-      font-size: 18px;
-      font-weight: bold;
+    .box-exercicio a {
+      color: #fff;
+      text-decoration: none;
+      display: block;
     }
 
-    .box-exercicio p {
-      font-size: 14px;
-      margin-top: 5px;
+    .box-exercicio h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #ff5050;
     }
 
-    .rodape {
+    /* Abas fixas */
+    .bottom-nav {
       position: fixed;
       bottom: 0;
+      left: 0;
       width: 100%;
       background-color: #111;
       display: flex;
       justify-content: space-around;
-      align-items: center;
-      padding: 5px 0;
-      border-top: 1px solid #444;
+      padding: 10px 0;
+      border-top: 1px solid #333;
+      z-index: 999;
     }
 
-    .aba {
-      flex-grow: 1;
+    .bottom-nav a {
       text-align: center;
-      color: #ccc;
-      font-size: 12px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.85rem;
     }
 
-    .aba span {
+    .bottom-nav a span {
       display: block;
-      font-size: 20px;
-    }
-
-    .ativo {
-      color: red;
-    }
-
-    .ajuda {
-      position: fixed;
-      bottom: 90px;
-      right: 20px;
-      background-color: red;
-      color: white;
-      border-radius: 20px;
-      padding: 10px 15px;
-      font-weight: bold;
-      animation: pulse 1.5s infinite;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.05); opacity: 0.8; }
-      100% { transform: scale(1); opacity: 1; }
+      font-size: 1.4rem;
+      margin-bottom: 4px;
     }
   </style>
 </head>
 <body>
 
   <h1>Técnica Xingondo 🍆</h1>
-  <p class="descricao">Descubra os melhores exercícios para turbinar sua potência.</p>
 
-  <!-- Imagem ilustrativa (você pode trocar o src) -->
-  <img src="https://via.placeholder.com/300x200.png?text=Imagem+Ilustrativa" alt="Imagem ilustrativa" class="imagem-topo">
+  <div class="container">
+    <!-- Imagem ilustrativa (ex: pepino) -->
+    <img src="https://via.placeholder.com/300x200.png?text=Imagem+Ilustrativa" alt="Imagem ilustrativa" class="imagem-ilustrativa">
 
-  <!-- Exercício 1 -->
-  <div class="box-exercicio" onclick="window.open('https://www.youtube.com/watch?v=exemplo1', '_blank')">
-    <span>💪 Exercício de Kegel</span>
-    <p>Como ser potente na cama</p>
+    <!-- Exercício 1 -->
+    <div class="box-exercicio">
+      <a href="https://www.youtube.com/watch?v=VIDEO_ID1" target="_blank">
+        <h3>🍆 Exercício de Kegel – Como ser potente na cama</h3>
+      </a>
+    </div>
+
+    <!-- Exercício 2 -->
+    <div class="box-exercicio">
+      <a href="https://www.youtube.com/watch?v=VIDEO_ID2" target="_blank">
+        <h3>💪 Como aumentar o bixo em poucos dias</h3>
+      </a>
+    </div>
   </div>
 
-  <!-- Exercício 2 -->
-  <div class="box-exercicio" onclick="window.open('https://www.youtube.com/watch?v=exemplo2', '_blank')">
-    <span>🍆 Aumentar o bixo</span>
-    <p>Como aumentar o bixo em poucos dias</p>
-  </div>
-
-  <!-- Botão de ajuda -->
-  <div class="ajuda">❓ Precisa de ajuda?</div>
-
-  <!-- Rodapé fixo -->
-  <div class="rodape">
-    <div class="aba" onclick="window.location.href='index.html'">
+  <!-- Abas fixas com emojis centralizados -->
+  <div class="bottom-nav">
+    <a href="index.html">
       <span>🏠</span>Início
-    </div>
-    <div class="aba" onclick="window.location.href='receita.html'">
-      <span>📄</span>Receita
-    </div>
-    <div class="aba ativo" onclick="window.location.href='exercicios.html'">
+    </a>
+    <a href="receita.html">
+      <span>🍲</span>Receita
+    </a>
+    <a href="exercicios.html">
       <span>🏋️</span>Exercícios
-    </div>
-    <div class="aba" onclick="window.location.href='progresso.html'">
-      <span>✅</span>Progresso
-    </div>
-    <div class="aba" onclick="window.location.href='guia.html'">
+    </a>
+    <a href="progresso.html">
+      <span>📅</span>Progresso
+    </a>
+    <a href="guia.html">
       <span>📘</span>Guia
-    </div>
+    </a>
   </div>
 
 </body>
