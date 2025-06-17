@@ -5,9 +5,92 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Início</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      font-family: Arial, sans-serif;
+      color: #fff;
+    }
+
+    .titulo {
+      text-align: center;
+      font-size: 1.6rem;
+      margin: 20px;
+      color: red;
+    }
+
+    .formulario {
+      max-width: 500px;
+      margin: 0 auto 80px;
+      padding: 20px;
+      background-color: #111;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(255,0,0,0.3);
+    }
+
+    .formulario label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .formulario input,
+    .formulario select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      border: none;
+      background-color: #222;
+      color: #fff;
+    }
+
+    .formulario button {
+      width: 100%;
+      padding: 15px;
+      background-color: red;
+      border: none;
+      color: #fff;
+      font-size: 1.1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 10px;
+      animation: pulse 1.5s infinite;
+      font-weight: bold;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(255,0,0,0.5); }
+      70% { box-shadow: 0 0 0 10px rgba(255,0,0,0); }
+      100% { box-shadow: 0 0 0 0 rgba(255,0,0,0); }
+    }
+
+    .menu {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #111;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+      border-top: 1px solid #333;
+      z-index: 999;
+    }
+
+    .menu a {
+      text-align: center;
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.85rem;
+    }
+  </style>
 </head>
 <body>
   <h1 class="titulo">Responde às perguntas</h1>
+
   <form action="receita.html" class="formulario">
     <label>1. Qual é o teu nome?</label>
     <input type="text" required />
@@ -43,7 +126,7 @@
   </form>
 
   <div class="menu">
-    <a href="index.html">🏠<br>Início</a>
+    <a href="index.html" class="ativo">🏠<br>Início</a>
     <a href="receita.html">📋<br>Receita</a>
     <a href="exercicios.html">🍆<br>Exercícios</a>
     <a href="progresso.html">📅<br>Progresso</a>
