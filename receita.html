@@ -1,1 +1,172 @@
-<!DOCTYPE html><html lang='pt'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><title>Receita</title><link rel='stylesheet' href='style.css'></head><body><div class='container'><h1>📋 Receita</h1><div class='box pulsar'>🌿 Ingrediente 1</div><div class='box pulsar'>💧 Ingrediente 2</div><div class='box pulsar'>🔥 Instrução especial</div></div><div class='bottom-nav'><a href='index.html'>🏠<br>Início</a><a href='receita.html'>📋<br>Receita</a><a href='aulas.html'>🎥<br>Aulas</a><a href='progresso.html'>📅<br>Progresso</a><a href='guia.html'>📖<br>Guia</a></div><a href='https://wa.me/258840000000' class='whatsapp-float' target='_blank'>💬</a></body></html>
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Receita</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      font-family: Arial, sans-serif;
+      color: #fff;
+    }
+
+    .container {
+      padding: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      color: red;
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    p.subtexto {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #ccc;
+    }
+
+    .receita-box {
+      background-color: #111;
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+    }
+
+    .receita-box h2 {
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .ingredientes li {
+      list-style: none;
+      padding: 8px 0;
+      border-bottom: 1px solid #333;
+      font-size: 1rem;
+    }
+
+    .botao-preparar {
+      background-color: red;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      width: 100%;
+      padding: 15px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 20px;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(255,0,0, 0.5); }
+      70% { box-shadow: 0 0 0 10px rgba(255,0,0, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(255,0,0, 0); }
+    }
+
+    .imagem-receita {
+      width: 100%;
+      border-radius: 12px;
+      margin-top: 10px;
+    }
+
+    .instrucao {
+      margin-top: 15px;
+      line-height: 1.6;
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #111;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+      border-top: 1px solid #333;
+      z-index: 999;
+    }
+
+    .bottom-nav a {
+      text-align: center;
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.85rem;
+    }
+
+    .bottom-nav img {
+      width: 24px;
+      height: 24px;
+      display: block;
+      margin: 0 auto 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Receita Para Aumentar o Pénis</h1>
+    <p class="subtexto">Você está prestes a descobrir a fórmula que vai turbinar sua performance naturalmente.</p>
+
+    <img src="img/receita.jpg" alt="Imagem da Receita" class="imagem-receita">
+
+    <div class="receita-box">
+      <h2>Ingredientes</h2>
+      <ul class="ingredientes">
+        <li>🧄 2 dentes de alho picado</li>
+        <li>🍋 Meio limão</li>
+        <li>☕ 1 colher de café em pó</li>
+        <li>🌿 Gengibre picado</li>
+        <li>🍯 Mel (a gosto)</li>
+      </ul>
+
+      <p class="instrucao">
+        <strong>Modo de usar:</strong><br>
+        1. Corte o alho e o gengibre.<br>
+        2. Misture com o suco do limão.<br>
+        3. Adicione o café e o mel.<br>
+        4. Mexa bem até formar uma mistura homogênea.<br><br>
+        ✅ Tome 1 vez ao dia, sempre de manhã, com o estômago vazio. <br>
+        Faça isso durante 10 dias seguidos para melhores resultados.
+      </p>
+
+      <button class="botao-preparar" onclick="window.open('https://youtube.com/', '_blank')">
+        ▶️ Como preparar a receita?
+      </button>
+    </div>
+  </div>
+
+  <div class="bottom-nav">
+    <a href="index.html">
+      <img src="icons/inicio.png" alt="Início">
+      Início
+    </a>
+    <a href="receita.html">
+      <img src="icons/receita.png" alt="Receita">
+      Receita
+    </a>
+    <a href="aulas.html">
+      <img src="icons/aulas.png" alt="Exercícios">
+      Exercícios
+    </a>
+    <a href="progresso.html">
+      <img src="icons/progresso.png" alt="Progresso">
+      Progresso
+    </a>
+    <a href="guia.html">
+      <img src="icons/guia.png" alt="Guia">
+      Guia
+    </a>
+  </div>
+</body>
+</html>
