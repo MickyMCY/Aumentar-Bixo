@@ -3,68 +3,73 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Início</title>
+  <title>Técnica Xingando</title>
   <link rel="stylesheet" href="style.css" />
   <style>
     body {
       margin: 0;
-      background-color: #000;
+      padding: 0;
+      background: url('img/homem-forte.jpg') no-repeat center center fixed;
+      background-size: cover;
       font-family: Arial, sans-serif;
       color: #fff;
     }
 
-    .titulo {
-      text-align: center;
-      font-size: 1.6rem;
-      margin: 20px;
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.75);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 0;
+    }
+
+    .conteudo {
+      position: relative;
+      z-index: 1;
+      padding: 20px;
+    }
+
+    h1.titulo {
       color: red;
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
     }
 
     .formulario {
-      max-width: 500px;
-      margin: 0 auto 80px;
-      padding: 20px;
-      background-color: #111;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(255,0,0,0.3);
+      max-width: 600px;
+      margin: 0 auto;
     }
 
     .formulario label {
       display: block;
-      margin-top: 15px;
-      margin-bottom: 5px;
-      font-weight: bold;
+      margin: 15px 0 5px;
     }
 
     .formulario input,
     .formulario select {
       width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border-radius: 8px;
-      border: none;
-      background-color: #222;
-      color: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      border: 2px solid red;
+      background-color: #111;
+      color: white;
+      font-size: 1rem;
     }
 
     .formulario button {
+      margin-top: 20px;
       width: 100%;
       padding: 15px;
       background-color: red;
+      color: white;
       border: none;
-      color: #fff;
-      font-size: 1.1rem;
       border-radius: 10px;
+      font-size: 1.1rem;
       cursor: pointer;
-      margin-top: 10px;
-      animation: pulse 1.5s infinite;
       font-weight: bold;
-    }
-
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(255,0,0,0.5); }
-      70% { box-shadow: 0 0 0 10px rgba(255,0,0,0); }
-      100% { box-shadow: 0 0 0 0 rgba(255,0,0,0); }
     }
 
     .menu {
@@ -77,56 +82,62 @@
       justify-content: space-around;
       padding: 10px 0;
       border-top: 1px solid #333;
-      z-index: 999;
     }
 
     .menu a {
       text-align: center;
-      color: #fff;
+      color: white;
       text-decoration: none;
       font-size: 0.85rem;
+    }
+
+    .menu a img {
+      display: block;
+      margin: 0 auto 5px;
     }
   </style>
 </head>
 <body>
-  <h1 class="titulo">Responde às perguntas</h1>
+  <div class="overlay"></div>
+  <div class="conteudo">
+    <h1 class="titulo">Técnica Xingando</h1>
+    <form action="receita.html" class="formulario">
+      <label>1. Qual é o teu nome?</label>
+      <input type="text" required />
 
-  <form action="receita.html" class="formulario">
-    <label>1. Qual é o teu nome?</label>
-    <input type="text" required />
+      <label>2. Qual é a tua idade?</label>
+      <select required>
+        <option disabled selected>Seleciona...</option>
+        <option>18-24</option>
+        <option>25-34</option>
+        <option>35-44</option>
+        <option>45+</option>
+      </select>
 
-    <label>2. Qual é a tua idade?</label>
-    <select required>
-      <option disabled selected>Seleciona...</option>
-      <option>18-24</option>
-      <option>25-34</option>
-      <option>35-44</option>
-      <option>45+</option>
-    </select>
+      <label>3. Qual o tamanho atual do teu “menino”?</label>
+      <select required>
+        <option disabled selected>Seleciona...</option>
+        <option>&lt;10 cm</option>
+        <option>10-13 cm</option>
+        <option>14-17 cm</option>
+        <option>18+ cm</option>
+      </select>
 
-    <label>3. Qual o tamanho atual do teu “menino”?</label>
-    <select required>
-      <option disabled selected>Seleciona...</option>
-      <option>&lt;10 cm</option>
-      <option>10-13 cm</option>
-      <option>14-17 cm</option>
-      <option>18+ cm</option>
-    </select>
+      <label>4. Qual é a tua meta de tamanho?</label>
+      <select required>
+        <option disabled selected>Seleciona...</option>
+        <option>+2 cm</option>
+        <option>+4 cm</option>
+        <option>+6 cm</option>
+        <option>+8 cm ou mais</option>
+      </select>
 
-    <label>4. Qual é a tua meta de tamanho?</label>
-    <select required>
-      <option disabled selected>Seleciona...</option>
-      <option>+2 cm</option>
-      <option>+4 cm</option>
-      <option>+6 cm</option>
-      <option>+8 cm ou mais</option>
-    </select>
-
-    <button type="submit">Continuar</button>
-  </form>
+      <button type="submit">Continuar</button>
+    </form>
+  </div>
 
   <div class="menu">
-    <a href="index.html" class="ativo">🏠<br>Início</a>
+    <a href="index.html">🏠<br>Início</a>
     <a href="receita.html">📋<br>Receita</a>
     <a href="exercicios.html">🍆<br>Exercícios</a>
     <a href="progresso.html">📅<br>Progresso</a>
