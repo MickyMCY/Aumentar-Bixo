@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Progresso</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Progresso - Técnica Xingondo</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h2 class="titulo">Acompanha o teu Progresso</h2>
-  <div class="dias-container">
-    <!-- Gera os 30 dias -->
-    <script>
-      for (let i = 1; i <= 30; i++) {
-        document.write(<button class="dia-btn">Dia ${i}</button>);
-      }
-    </script>
+  <div class="container">
+    <h1>Teu Progresso</h1>
+    <div class="dias-grid">
+      <!-- Gera de 1 a 30 -->
+      <script>
+        for(let i = 1; i <= 30; i++) {
+          document.write(`<div class="dia-box">Dia ${i}</div>`);
+        }
+      </script>
+    </div>
   </div>
 
-  <div class="menu">
-    <a href="index.html"><img src="icons/home.png" /><span>Início</span></a>
-    <a href="receita.html"><img src="icons/recipe.png" /><span>Receita</span></a>
-    <a href="aulas.html"><img src="icons/class.png" /><span>Aulas</span></a>
-    <a href="progresso.html"><img src="icons/progress.png" /><span>Progresso</span></a>
-    <a href="guia.html"><img src="icons/guide.png" /><span>Guia</span></a>
-  </div>
+  <footer class="bottom-nav">
+    <a href="index.html"><img src="inicio.png"><span>Início</span></a>
+    <a href="receita.html"><img src="receita.png"><span>Receita</span></a>
+    <a href="aulas.html"><img src="aulas.png"><span>Aulas</span></a>
+    <a href="progresso.html"><img src="progresso.png"><span>Progresso</span></a>
+    <a href="guia.html"><img src="guia.png"><span>Guia</span></a>
+  </footer>
 </body>
 </html>
