@@ -1,30 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Progresso - Técnica Xingondo</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Progresso - Técnica Xingondo</title><link rel="stylesheet" href="style.css"></head>
 <body>
   <div class="container">
-    <h1>Teu Progresso</h1>
-    <div class="dias-grid">
-      <!-- Gera de 1 a 30 -->
-      <script>
-        for(let i = 1; i <= 30; i++) {
-          document.write(`<div class="dia-box">Dia ${i}</div>`);
-        }
-      </script>
+    <h1>📈 Teu Progresso</h1>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(60px,1fr));gap:10px">
+      <script>for(let i=1;i<=30;i++){document.write(`<div style="background:#111;padding:10px;text-align:center;border:2px solid #ff0000;border-radius:6px;">Dia ${i}</div>`)};</script>
     </div>
   </div>
-
-  <footer class="bottom-nav">
-    <a href="index.html"><img src="inicio.png"><span>Início</span></a>
-    <a href="receita.html"><img src="receita.png"><span>Receita</span></a>
-    <a href="aulas.html"><img src="aulas.png"><span>Aulas</span></a>
-    <a href="progresso.html"><img src="progresso.png"><span>Progresso</span></a>
-    <a href="guia.html"><img src="guia.png"><span>Guia</span></a>
-  </footer>
+  <a href="https://wa.me/SEUNUMERO" class="whatsapp-btn" target="_blank">📲 Precisa de ajuda?</a>
+  <nav class="menu-rodape">
+    <a href="index.html">🏠 Início</a>
+    <a href="receita.html">🍽️ Receita</a>
+    <a href="aulas.html">📚 Aulas</a>
+    <a href="progresso.html" class="ativa">📈 Progresso</a>
+    <a href="guia.html">ℹ️ Guia</a>
+  </nav>
 </body>
 </html>
