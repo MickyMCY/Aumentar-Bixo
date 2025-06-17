@@ -1,63 +1,112 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Formulário - Técnica Xingondo</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      padding: 30px 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ff0000;
+      margin-bottom: 30px;
+    }
+
+    label {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    input[type="text"], select {
+      width: 100%;
+      padding: 16px;
+      margin-bottom: 25px;
+      font-size: 1.1rem;
+      background-color: #111;
+      color: #fff;
+      border: 2px solid #ff0000;
+      border-radius: 8px;
+      appearance: none;
+    }
+
+    select {
+      background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+      background-repeat: no-repeat;
+      background-position-x: 98%;
+      background-position-y: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 18px;
+      font-size: 1.2rem;
+      background-color: #ff0000;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #cc0000;
+    }
+  </style>
 </head>
 <body>
-  <div class="led-top"></div>
+  <div class="container">
+    <h1>Responde às perguntas</h1>
 
-  <h1 class="titulo">Preencha o Formulário</h1>
-  <p class="sub">Vamos entender melhor o teu caso para aplicar a técnica certa</p>
+    <form action="conteudo.html">
+      <label for="nome">1. Qual é o teu nome?</label>
+      <input type="text" id="nome" name="nome" required />
 
-  <form class="form" action="receita.html" method="get">
-    <label for="nome">1. Qual é o teu nome?</label>
-    <input type="text" id="nome" name="nome" required placeholder="Ex: Carlos">
+      <label for="idade">2. Qual é a tua idade?</label>
+      <select id="idade" name="idade" required>
+        <option value="">Seleciona...</option>
+        <option value="18–24">18–24</option>
+        <option value="25–34">25–34</option>
+        <option value="35–44">35–44</option>
+        <option value="45–54">45–54</option>
+        <option value="55–65+">55–65+</option>
+      </select>
 
-    <label for="idade">2. Qual é a tua idade?</label>
-    <select id="idade" name="idade" required>
-      <option value="">Seleciona</option>
-      <option>18–24</option>
-      <option>25–34</option>
-      <option>35–44</option>
-      <option>45–54</option>
-      <option>55–65+</option>
-    </select>
+      <label for="tamanho">3. Qual o tamanho atual do teu “menino”?</label>
+      <select id="tamanho" name="tamanho" required>
+        <option value="">Seleciona...</option>
+        <option value="2–5 cm">2–5 cm</option>
+        <option value="5–10 cm">5–10 cm</option>
+        <option value="10–15 cm">10–15 cm</option>
+        <option value="15–20 cm">15–20 cm</option>
+        <option value="20–23 cm">20–23 cm</option>
+      </select>
 
-    <label for="tamanho">3. Qual o tamanho atual do teu “menino”?</label>
-    <select id="tamanho" name="tamanho" required>
-      <option value="">Seleciona</option>
-      <option>2–5 cm</option>
-      <option>5–10 cm</option>
-      <option>10–15 cm</option>
-      <option>15–20 cm</option>
-      <option>20–23 cm</option>
-    </select>
+      <label for="meta">4. Qual é a tua meta de tamanho?</label>
+      <select id="meta" name="meta" required>
+        <option value="">Seleciona...</option>
+        <option value="Controlar ejaculação">Apenas controlar ejaculação</option>
+        <option value="Mais potência">Ter mais potência</option>
+        <option value="18 cm">Alcançar 18 cm</option>
+        <option value="23 cm">Alcançar 23 cm</option>
+      </select>
 
-    <label for="meta">4. Qual é a tua meta de tamanho?</label>
-    <select id="meta" name="meta" required>
-      <option value="">Seleciona</option>
-      <option>Apenas controlar ejaculação</option>
-      <option>Ter mais potência</option>
-      <option>Alcançar 18 cm</option>
-      <option>Alcançar 23 cm</option>
-    </select>
-
-    <button type="submit" class="botao">Continuar</button>
-  </form>
-
-  <div class="whatsapp">
-    <a href="https://wa.me/258XXXXXXXXX" target="_blank">Suporte WhatsApp</a>
-  </div>
-
-  <div class="menu">
-    <a href="index.html"><img src="icons/home.png"><br><span>Início</span></a>
-    <a href="receita.html"><img src="icons/recipe.png"><br><span>Receita</span></a>
-    <a href="aulas.html"><img src="icons/aulas.png"><br><span>Aulas</span></a>
-    <a href="progresso.html"><img src="icons/progresso.png"><br><span>Progresso</span></a>
-    <a href="guia.html"><img src="icons/guia.png"><br><span>Guia</span></a>
+      <button type="submit">Continuar</button>
+    </form>
   </div>
 </body>
 </html>
