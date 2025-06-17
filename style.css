@@ -1,0 +1,204 @@
+/* Cores e fundo geral */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: #0d0d0d;
+  color: #fff;
+  text-align: center;
+}
+
+/* LED decorativo */
+.led-top {
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, red, darkred, red);
+  animation: led 3s linear infinite;
+}
+@keyframes led {
+  0% {background-position: 0 0;}
+  100% {background-position: 100% 0;}
+}
+
+/* Títulos e texto */
+.titulo {
+  font-size: 26px;
+  margin: 20px auto 10px;
+  color: #ff3333;
+}
+.sub {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #ccc;
+}
+
+/* Botões principais */
+.botao {
+  display: inline-block;
+  padding: 15px 30px;
+  margin: 20px auto;
+  background: #ff0000;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  font-size: 20px;
+  box-shadow: 0 0 10px red;
+}
+.botao:hover {
+  background: #cc0000;
+}
+
+/* Formulário */
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.form label {
+  text-align: left;
+  margin-top: 15px;
+  font-weight: bold;
+}
+.form select {
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
+/* Upload de imagem */
+input[type="file"] {
+  margin: 15px 0;
+  padding: 10px;
+  background: #222;
+  color: #fff;
+  border: 1px solid #444;
+  border-radius: 5px;
+}
+
+/* Cartões de vídeo */
+.video-card {
+  background: #1a1a1a;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 15px auto;
+  width: 90%;
+  max-width: 350px;
+  box-shadow: 0 0 10px #cc0000;
+}
+.video-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+.video-card a {
+  display: block;
+  margin-top: 10px;
+  background: #ff1a1a;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+/* Progresso - botões dia 1 a 30 */
+.dias-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px auto;
+  padding-bottom: 60px;
+}
+.dia-btn {
+  width: 80px;
+  height: 40px;
+  background: #222;
+  color: white;
+  border: 1px solid #ff0000;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.dia-btn:hover {
+  background: #ff0000;
+}
+
+/* Rodapé fixo (menu inferior) */
+.menu {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 65px;
+  background: #111;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 2px solid #ff0000;
+  z-index: 999;
+}
+.menu a {
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+}
+.menu img {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 4px;
+}
+
+/* WhatsApp flutuante */
+.whatsapp {
+  position: fixed;
+  bottom: 75px;
+  right: 10px;
+  background: #25d366;
+  padding: 10px 15px;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 0 10px #25d366;
+}
+.whatsapp a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Responsividade */
+@media (max-width: 500px) {
+  .botao {
+    font-size: 18px;
+    padding: 12px 24px;
+  }
+
+  .titulo {
+    font-size: 22px;
+  }
+
+  .sub {
+    font-size: 16px;
+  }
+
+  .video-card {
+    width: 95%;
+  }
+
+  .dia-btn {
+    width: 70px;
+    height: 40px;
+  }
+
+  .menu img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .menu a span {
+    font-size: 11px;
+  }
+}
