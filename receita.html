@@ -72,13 +72,14 @@
       100% { box-shadow: 0 0 0 0 rgba(255,0,0, 0); }
     }
 
-    .imagem-receita {
-  width: 200px;         /* Reduz o tamanho */
-  height: 200px;        /* Torna quadrada */
-  object-fit: cover;    /* Garante o recorte proporcional */
-  border-radius: 20px;  /* Bordas arredondadas */
+ .imagem-receita {
+  width: 100%;            /* Ocupa toda a largura disponível */
+  max-width: 400px;       /* Limite de largura para não estourar */
+  height: 200px;          /* Altura menor para formato retangular */
+  object-fit: cover;      /* Recorta proporcionalmente */
+  border-radius: 20px;    /* Bordas arredondadas */
   display: block;
-  margin: 20px auto;    /* Centraliza a imagem */
+  margin: 20px auto;      /* Centraliza */
 }
 
     .instrucao {
