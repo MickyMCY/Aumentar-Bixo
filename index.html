@@ -1,34 +1,74 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Receita da Mente</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Formulário Inicial</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="conteudo">
-    <h1>🍲 Receita para Mente Brilhante</h1>
-    <p class="descricao">Aumenta tua produtividade, foco e energia com esta receita poderosa!</p>
+  <div class="container">
+    <h1>Responde às perguntas</h1>
 
-    <div class="ingredientes">
-      <div class="ingrediente-box">🧄 2 dentes de alho esmagados</div>
-      <div class="ingrediente-box">🍯 1 colher de mel</div>
-      <div class="ingrediente-box">🍋 Suco de 1 limão</div>
-      <div class="ingrediente-box">🌶️ 1 pitada de gengibre</div>
-    </div>
+    <form action="receita.html">
+      <label for="nome">1. Qual é o teu nome?</label>
+      <input type="text" id="nome" name="nome" required />
 
-    <a class="btn-preparo" href="https://www.youtube.com/watch?v=EXEMPLO" target="_blank">🎥 Ver como preparar</a>
+      <label for="idade">2. Qual é a tua idade?</label>
+      <select id="idade" name="idade" required>
+        <option value="">Seleciona...</option>
+        <option value="18–24">18–24</option>
+        <option value="25–34">25–34</option>
+        <option value="35–44">35–44</option>
+        <option value="45–54">45–54</option>
+        <option value="55–65+">55–65+</option>
+      </select>
+
+      <label for="tamanho">3. Qual o tamanho atual do teu “menino”?</label>
+      <select id="tamanho" name="tamanho" required>
+        <option value="">Seleciona...</option>
+        <option value="2–5 cm">2–5 cm</option>
+        <option value="5–10 cm">5–10 cm</option>
+        <option value="10–15 cm">10–15 cm</option>
+        <option value="15–20 cm">15–20 cm</option>
+        <option value="20–23 cm">20–23 cm</option>
+      </select>
+
+      <label for="meta">4. Qual é a tua meta de tamanho?</label>
+      <select id="meta" name="meta" required>
+        <option value="">Seleciona...</option>
+        <option value="Controlar ejaculação">Apenas controlar ejaculação</option>
+        <option value="Mais potência">Ter mais potência</option>
+        <option value="18 cm">Alcançar 18 cm</option>
+        <option value="23 cm">Alcançar 23 cm</option>
+      </select>
+
+      <button type="submit">Continuar</button>
+    </form>
   </div>
 
-  <!-- Botão flutuante WhatsApp -->
-  <a href="https://wa.me/SEUNUMERO" class="whatsapp-btn" target="_blank">📲 Precisa de ajuda?</a>
-
-  <!-- Rodapé fixo com abas -->
-  <nav class="menu-rodape">
-    <a href="index.html" class="aba ativa">🏠 Receita</a>
-    <a href="aulas.html" class="aba">📚 Aulas</a>
-    <a href="guia.html" class="aba">ℹ️ Guia</a>
-  </nav>
+  <!-- Abas -->
+  <div class="bottom-nav">
+    <a href="index.html">
+      <div>🏠</div>
+      Início
+    </a>
+    <a href="receita.html">
+      <div>🧪</div>
+      Receita
+    </a>
+    <a href="aulas.html">
+      <div>📚</div>
+      Aulas
+    </a>
+    <a href="progresso.html">
+      <div>📈</div>
+      Progresso
+    </a>
+    <a href="guia.html">
+      <div>🧭</div>
+      Guia
+    </a>
+  </div>
 </body>
 </html>
