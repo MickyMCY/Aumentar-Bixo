@@ -11,6 +11,7 @@ body {
   padding: 20px;
   max-width: 600px;
   margin: auto;
+  padding-bottom: 120px; /* 👈 evita que a barra inferior tape conteúdo */
 }
 
 /* TÍTULOS */
@@ -82,7 +83,7 @@ button:hover {
   bottom: 80px;
   right: 20px;
   font-size: 2rem;
-  z-index: 999;
+  z-index: 9999;
 }
 
 /* MENU INFERIOR FIXO */
@@ -96,7 +97,7 @@ button:hover {
   justify-content: space-around;
   padding: 10px 0;
   border-top: 1px solid #333;
-  z-index: 999;
+  z-index: 9999; /* 👈 mais alto para ficar por cima */
 }
 
 .bottom-nav a,
@@ -136,12 +137,16 @@ button:hover {
   font-size: 1rem;
 }
 
-/* IMAGEM DA RECEITA */
+/* IMAGENS DE RECEITA E EXERCÍCIO */
 .imagem-receita,
 .imagem-topo {
   width: 100%;
-  border-radius: 12px;
-  margin: 15px 0;
+  max-width: 400px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 20px;
+  display: block;
+  margin: 20px auto;
 }
 
 /* INSTRUÇÕES */
