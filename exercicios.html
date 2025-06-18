@@ -6,19 +6,48 @@
   <title>Exercícios</title>
   <link rel="stylesheet" href="style.css" />
   <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      padding: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.8rem;
+      color: red;
+      margin-bottom: 20px;
+    }
+
+    .imagem-topo {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
     .categoria {
       margin-top: 30px;
     }
+
     .categoria h2 {
       color: red;
       font-size: 1.4rem;
       margin-bottom: 10px;
     }
+
     .categoria p {
       color: #ccc;
       font-size: 0.95rem;
       margin-bottom: 15px;
     }
+
     .box-video {
       background: #fff;
       border-radius: 12px;
@@ -27,21 +56,19 @@
       text-align: center;
       color: #000;
     }
+
     .box-video h3 {
       margin-bottom: 10px;
       font-size: 1rem;
     }
+
     .box-video iframe {
       width: 100%;
       height: 200px;
       border-radius: 8px;
       border: none;
     }
-    .imagem-topo {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 20px;
-    }
+
     .botao-voltar {
       background-color: red;
       color: #fff;
@@ -54,8 +81,46 @@
       margin: 20px 0;
       cursor: pointer;
     }
+
     .botao-voltar:hover {
       background-color: #cc0000;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #111;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+      border-top: 1px solid #333;
+      z-index: 999;
+    }
+
+    .bottom-nav a {
+      text-align: center;
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .bottom-nav a.ativo {
+      color: red;
+      font-weight: bold;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 70px;
+      right: 20px;
+      font-size: 2rem;
+      z-index: 999;
+      text-decoration: none;
     }
   </style>
 </head>
@@ -71,7 +136,7 @@
 
       <div class="box-video">
         <h3>Como ser potente na cama (Exercício de Kegel)</h3>
-        <iframe src="https://youtu.be/-V6KycBvFP8?si=F0mrsoh6pTi2Vxs2" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/-V6KycBvFP8" allowfullscreen></iframe>
       </div>
     </div>
 
@@ -82,15 +147,14 @@
 
       <div class="box-video">
         <h3>Como aumentar o bixo em poucos dias</h3>
-        <iframe src="https://youtu.be/fxQAMzlkzhA?si=RtlQrBDKHlwLYqOP" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/fxQAMzlkzhA" allowfullscreen></iframe>
       </div>
     </div>
 
-    <!-- Botão voltar -->
     <button class="botao-voltar" onclick="window.location.href='receita.html'">⬅️ Voltar à Receita</button>
   </div>
 
-  <!-- Menu fixo -->
+  <!-- Menu inferior fixo -->
   <div class="bottom-nav">
     <a href="index.html">🏠<br>Início</a>
     <a href="receita.html">📋<br>Receita</a>
@@ -99,7 +163,7 @@
     <a href="guia.html">📖<br>Guia</a>
   </div>
 
-  <!-- WhatsApp flutuante -->
+  <!-- Botão flutuante WhatsApp -->
   <a href="https://wa.me/258840000000" class="whatsapp-float" target="_blank">💬</a>
 </body>
 </html>
