@@ -11,7 +11,7 @@ body {
   padding: 20px;
   max-width: 600px;
   margin: auto;
-  padding-bottom: 120px; /* 👈 evita que a barra inferior tape conteúdo */
+  padding-bottom: 160px; /* 👈 espaçamento extra para não tapar botões */
 }
 
 /* TÍTULOS */
@@ -59,6 +59,17 @@ button:hover {
   background: #cc0000;
 }
 
+button:focus,
+button:active,
+a:focus,
+a:active,
+a:visited {
+  outline: none;
+  box-shadow: none;
+  border: none;
+  text-decoration: none;
+}
+
 /* BOTÃO DE VOLTAR */
 .botao-voltar {
   background: red;
@@ -97,7 +108,7 @@ button:hover {
   justify-content: space-around;
   padding: 10px 0;
   border-top: 1px solid #333;
-  z-index: 9999; /* 👈 mais alto para ficar por cima */
+  z-index: 9999;
 }
 
 .bottom-nav a,
@@ -172,6 +183,12 @@ button:hover {
   animation: pulse 1.5s infinite;
 }
 
+.botao-preparar:focus,
+.botao-preparar:active {
+  outline: none;
+  box-shadow: none;
+}
+
 @keyframes pulse {
   0% { box-shadow: 0 0 0 0 rgba(255,0,0, 0.5); }
   70% { box-shadow: 0 0 0 10px rgba(255,0,0, 0); }
@@ -205,7 +222,7 @@ button:hover {
   background: #fff;
   border-radius: 12px;
   padding: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 40px; /* 👈 espaçamento aumentado para não tapar botões */
   text-align: center;
   color: #000;
 }
