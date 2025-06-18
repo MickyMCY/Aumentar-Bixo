@@ -64,6 +64,8 @@
       font-weight: bold;
       margin-top: 20px;
       animation: pulse 1.5s infinite;
+      text-align: center;
+      display: block;
     }
 
     @keyframes pulse {
@@ -72,15 +74,15 @@
       100% { box-shadow: 0 0 0 0 rgba(255,0,0, 0); }
     }
 
- .imagem-receita {
-  width: 100%;            /* Ocupa toda a largura disponível */
-  max-width: 400px;       /* Limite de largura para não estourar */
-  height: 200px;          /* Altura menor para formato retangular */
-  object-fit: cover;      /* Recorta proporcionalmente */
-  border-radius: 20px;    /* Bordas arredondadas */
-  display: block;
-  margin: 20px auto;      /* Centraliza */
-}
+    .imagem-receita {
+      width: 100%;
+      max-width: 400px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 20px;
+      display: block;
+      margin: 20px auto;
+    }
 
     .instrucao {
       margin-top: 15px;
@@ -107,6 +109,14 @@
       color: #fff;
       text-decoration: none;
       font-size: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .menu a.ativo {
+      color: red;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -115,7 +125,7 @@
     <h1>Receita Para Aumentar o Pénis</h1>
     <p class="subtexto">Você está prestes a descobrir a fórmula que vai turbinar sua performance naturalmente.</p>
 
-    <!-- IMAGEM DA RECEITA CORRETAMENTE INSERIDA -->
+    <!-- IMAGEM DA RECEITA -->
     <img src="receita1.jpg" alt="Imagem da Receita" class="imagem-receita">
 
     <div class="receita-box">
@@ -138,12 +148,14 @@
         Faça isso durante 10 dias seguidos para melhores resultados.
       </p>
 
-      <button class="botao-preparar" onclick="window.open('https://youtu.be/UxLV7v9G38U?si=f4IxRRgnk459JaoV)">
-        ▶️ Como preparar a receita?
-      </button>
+      <!-- BOTÃO DE VÍDEO FUNCIONAL -->
+      <a href="https://youtu.be/UxLV7v9G38U?si=f4IxRRgnk459JaoV" target="_blank">
+        <button class="botao-preparar">▶️ Como preparar a receita?</button>
+      </a>
     </div>
   </div>
 
+  <!-- MENU INFERIOR -->
   <div class="menu">
     <a href="index.html">🏠<br>Início</a>
     <a href="receita.html" class="ativo">📋<br>Receita</a>
