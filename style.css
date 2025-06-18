@@ -275,3 +275,15 @@ a:visited {
     font-size: 0.7rem;
   }
 }
+
+/* REMOVER OUTLINE AZUL EM LINKS E BOTÕES */
+a, a:focus, a:active, a:visited,
+button, button:focus, button:active,
+.botao-preparar:focus, .botao-preparar:active {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+  text-decoration: none !important;
+  color: inherit;
+}
