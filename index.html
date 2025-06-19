@@ -151,5 +151,28 @@
     });
   </script>
 
+  <script>
+    // Função para criar cookie
+    function setCookie(nome, valor, dias) {
+      const data = new Date();
+      data.setTime(data.getTime() + (dias*24*60*60*1000));
+      const expires = "expires=" + data.toUTCString();
+      document.cookie = nome + "=" + encodeURIComponent(valor) + ";" + expires + ";path=/";
+    }
+
+    // Salvar os dados do formulário em cookies no submit (sem alterar o fluxo)
+    document.getElementById("meuFormulario").addEventListener("submit", function(e){
+      const nome = document.getElementById("nome").value.trim();
+      const idade = document.getElementById("idade").value;
+      const tamanho = document.getElementById("tamanho").value;
+      const meta = document.getElementById("meta").value;
+
+      setCookie("nome", nome, 7);
+      setCookie("idade", idade, 7);
+      setCookie("tamanho", tamanho, 7);
+      setCookie("meta", meta, 7);
+    });
+  </script>
+
 </body>
 </html>
