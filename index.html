@@ -9,12 +9,72 @@
     body {
       background: url('homem.jpg') no-repeat center center fixed;
       background-size: cover;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: #fff;
     }
+
+    .container {
+      max-width: 420px;
+      margin: 80px auto 40px auto;
+      padding: 0 20px;
+    }
+
     .formulario {
+      width: 100%;
+      max-width: 420px;
       background: rgba(0, 0, 0, 0.75);
-      padding: 20px;
+      padding: 25px;
       border-radius: 12px;
+      box-sizing: border-box;
     }
+
+    h1 {
+      text-align: center;
+      color: red;
+    }
+
+    label {
+      display: block;
+      margin-top: 12px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    select {
+      width: 100%;
+      padding: 14px;
+      margin-top: 6px;
+      margin-bottom: 16px;
+      border-radius: 10px;
+      border: 2px solid red;
+      background: #111;
+      color: #fff;
+      font-size: 1rem;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      box-sizing: border-box;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 15px;
+      background: red;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background: #cc0000;
+    }
+
     .hidden {
       display: none;
     }
@@ -26,29 +86,31 @@
     <h1>Técnica Xingondo</h1>
     <div class="formulario" id="formulario">
       <form id="meuFormulario">
-        <label>1. Qual é o teu nome?</label>
-        <input type="text" placeholder="ex: João" required>
+        <label for="nome">1. Qual é o teu nome?</label>
+        <input type="text" id="nome" placeholder="ex: João" required>
 
-        <label>2. Qual é a tua idade?</label>
-        <select required>
-          <option value="">Seleciona...</option>
-          <option value="18-25">18-25</option>
-          <option value="26-35">26-35</option>
-          <option value="36+">36+</option>
+        <label for="idade">2. Qual é a tua idade?</label>
+        <select id="idade" required>
+          <option value="" disabled selected>Seleciona...</option>
+          <option value="18-20">18 a 20</option>
+          <option value="21-25">21 a 25</option>
+          <option value="26-30">26 a 30</option>
+          <option value="31-40">31 a 40</option>
+          <option value="41+">41 ou mais</option>
         </select>
 
-        <label>3. Qual o tamanho atual do teu “Bixo”?</label>
-        <select required>
-          <option value="">Seleciona...</option>
-          <option value="menor5">Menor que 5 cm</option>
-          <option value="5-10">5 a 10 cm</option>
-          <option value="10-15">10 a 15 cm</option>
-          <option value="maior15">Maior que 15 cm</option>
+        <label for="tamanho">3. Qual o tamanho atual do teu “Bixo”?</label>
+        <select id="tamanho" required>
+          <option value="" disabled selected>Seleciona...</option>
+          <option value="2-5">2 a 5 cm</option>
+          <option value="6-8">6 a 8 cm</option>
+          <option value="9-12">9 a 12 cm</option>
+          <option value="13-15">13 a 15 cm</option>
         </select>
 
-        <label>4. Qual é a tua meta de tamanho?</label>
-        <select required>
-          <option value="">Seleciona...</option>
+        <label for="meta">4. Qual é a tua meta de tamanho?</label>
+        <select id="meta" required>
+          <option value="" disabled selected>Seleciona...</option>
           <option value="15">15 cm</option>
           <option value="18">18 cm</option>
           <option value="20">20 cm</option>
@@ -67,12 +129,25 @@
   <script>
     document.getElementById("meuFormulario").addEventListener("submit", function(e){
       e.preventDefault();
+
+      const nomeInput = document.getElementById("nome");
+      const nome = nomeInput.value.trim();
+
+      // Validação: mínimo 3 letras, somente letras e espaços
+      const nomeValido = /^[A-Za-zÀ-ÿ\s]{3,}$/.test(nome);
+
+      if (!nomeValido) {
+        alert("Por favor, insira um nome válido com pelo menos 3 letras (somente letras e espaços).");
+        nomeInput.focus();
+        return;
+      }
+
       document.getElementById("formulario").classList.add("hidden");
       document.getElementById("processando").classList.remove("hidden");
 
       setTimeout(() => {
         window.location.href = "receita.html";
-      }, 3000); // 3 segundos
+      }, 3000);
     });
   </script>
 
