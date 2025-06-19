@@ -4,21 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Técnica Xingondo</title>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css" />
   <style>
     body {
+      margin: 0;
+      padding: 0;
       background: url('homem.jpg') no-repeat center center fixed;
       background-size: cover;
-      margin: 0;
       font-family: Arial, sans-serif;
       color: white;
     }
 
     .container {
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color: rgba(0, 0, 0, 0.7);
       padding: 20px;
-      border-radius: 10px;
-      margin: 60px 20px 80px;
+      border-radius: 12px;
+      max-width: 600px;
+      margin: 60px auto 100px;
     }
 
     h1 {
@@ -36,21 +38,18 @@
     input[type="text"],
     select {
       width: 100%;
-      padding: 14px;
-      margin-top: 5px;
+      padding: 15px;
+      margin: 10px 0 20px;
       border: 2px solid red;
       border-radius: 12px;
       background-color: black;
       color: white;
       font-size: 16px;
-    }
-
-    input::placeholder {
-      color: #aaa;
+      appearance: none;
+      outline: none;
     }
 
     .btn-continuar {
-      margin-top: 30px;
       width: 100%;
       background-color: red;
       color: white;
@@ -59,6 +58,7 @@
       border: none;
       border-radius: 12px;
       cursor: pointer;
+      font-weight: bold;
     }
 
     .processing {
@@ -66,6 +66,26 @@
       margin-top: 20px;
       font-size: 18px;
       display: none;
+      animation: piscar 1s infinite;
+      color: #ffc107;
+    }
+
+    .aviso {
+      display: none;
+      background-color: #220000;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      font-size: 1.1rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px red;
+      margin-top: 20px;
+      animation: piscar 2s infinite;
+    }
+
+    @keyframes piscar {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
     }
   </style>
 </head>
@@ -104,22 +124,58 @@
 
       <button class="btn-continuar" type="submit">Continuar</button>
     </form>
-    <div class="processing" id="loading">Processando...</div>
+
+    <div class="processing" id="loading">⏳ Processando...</div>
+    <div class="aviso" id="aviso-pagamento">
+      ⚠️ O senhor ainda não efetuou o pagamento para acesso total da Técnica Xingondo.
+    </div>
   </div>
 
   <script>
     const form = document.getElementById('formulario');
-    const container = document.getElementById('form-container');
     const loading = document.getElementById('loading');
+    const aviso = document.getElementById('aviso-pagamento');
+
+    // Função para salvar dados no localStorage
+    function salvarDados() {
+      const dados = {
+        nome: form.nome.value,
+        idade: form.idade.value,
+        tamanho: form.tamanho.value,
+        meta: form.meta.value
+      };
+      localStorage.setItem('dadosFormulario', JSON.stringify(dados));
+    }
+
+    // Função para carregar dados do localStorage e preencher o formulário
+    function carregarDados() {
+      const dadosSalvos = localStorage.getItem('dadosFormulario');
+      if (dadosSalvos) {
+        const dados = JSON.parse(dadosSalvos);
+        if (dados.nome) form.nome.value = dados.nome;
+        if (dados.idade) form.idade.value = dados.idade;
+        if (dados.tamanho) form.tamanho.value = dados.tamanho;
+        if (dados.meta) form.meta.value = dados.meta;
+      }
+    }
+
+    // Ao carregar a página, preencher o formulário se tiver dados
+    window.addEventListener('DOMContentLoaded', carregarDados);
 
     form.addEventListener('submit', function(e) {
       e.preventDefault();
+      salvarDados();
       form.style.display = 'none';
       loading.style.display = 'block';
 
       setTimeout(() => {
-        window.location.href = 'receita.html';
-      }, 3000); // 3 segundos de processamento
+        loading.style.display = 'none';
+        aviso.style.display = 'block';
+
+        setTimeout(() => {
+          window.location.href = 'vsl.html';
+        }, 3000);
+      }, 2500);
     });
   </script>
 </body>
