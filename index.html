@@ -3,11 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <title>Técnica Xingondo</title>
-  <!-- Meta viewport ajustado para evitar zoom e rolagem lateral -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* Box sizing global para evitar que padding e bordas quebrem layout */
     * {
       box-sizing: border-box;
     }
@@ -15,15 +13,13 @@
     html, body {
       margin: 0;
       padding: 0;
-      overflow-x: hidden; /* bloqueia rolagem lateral */
-      width: 100vw; /* largura da viewport */
+      overflow-x: hidden;
+      width: 100vw;
       height: 100%;
       font-family: Arial, sans-serif;
       color: #fff;
       background: url('homem.jpg') no-repeat center center fixed;
       background-size: cover;
-      -webkit-text-size-adjust: 100%;
-      -ms-text-size-adjust: 100%;
     }
 
     .container {
@@ -64,8 +60,6 @@
       color: #fff;
       font-size: 1rem;
       appearance: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
     }
 
     button[type="submit"] {
@@ -137,30 +131,7 @@
   </div>
 
   <script>
-    document.getElementById("meuFormulario").addEventListener("submit", function(e) {
-      e.preventDefault();
-
-      const nomeInput = document.getElementById("nome");
-      const nome = nomeInput.value.trim();
-
-      // Validação: mínimo 3 letras, somente letras e espaços
-      const nomeValido = /^[A-Za-zÀ-ÿ\s]{3,}$/.test(nome);
-
-      if (!nomeValido) {
-        alert("Por favor, insira um nome válido com pelo menos 3 letras (somente letras e espaços).");
-        nomeInput.focus();
-        return;
-      }
-
-      document.getElementById("formulario").classList.add("hidden");
-      document.getElementById("processando").classList.remove("hidden");
-
-      setTimeout(() => {
-        window.location.href = "receita.html";
-      }, 3000);
-    });
-
-    // Função para criar cookie
+    // ===== COOKIE UTIL =====
     function setCookie(nome, valor, dias) {
       const data = new Date();
       data.setTime(data.getTime() + (dias * 24 * 60 * 60 * 1000));
@@ -168,9 +139,46 @@
       document.cookie = nome + "=" + encodeURIComponent(valor) + ";" + expires + ";path=/";
     }
 
-    // Salvar os dados do formulário em cookies no submit (sem alterar o fluxo)
-    document.getElementById("meuFormulario").addEventListener("submit", function() {
-      const nome = document.getElementById("nome").value.trim();
+    function getCookie(nome) {
+      const nomeEQ = nome + "=";
+      const ca = document.cookie.split(';');
+      for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === ' ') c = c.substring(1);
+        if (c.indexOf(nomeEQ) === 0) return decodeURIComponent(c.substring(nomeEQ.length));
+      }
+      return null;
+    }
+
+    // ===== APLICAR COOKIES NOS CAMPOS AO CARREGAR =====
+    window.addEventListener("DOMContentLoaded", () => {
+      const nome = getCookie("nome");
+      const idade = getCookie("idade");
+      const tamanho = getCookie("tamanho");
+      const meta = getCookie("meta");
+
+      if (nome) document.getElementById("nome").value = nome;
+      if (idade) document.getElementById("idade").value = idade;
+      if (tamanho) document.getElementById("tamanho").value = tamanho;
+      if (meta) document.getElementById("meta").value = meta;
+    });
+
+    // ===== SUBMISSÃO DO FORMULÁRIO =====
+    document.getElementById("meuFormulario").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const nomeInput = document.getElementById("nome");
+      const nome = nomeInput.value.trim();
+
+      // Validação
+      const nomeValido = /^[A-Za-zÀ-ÿ\s]{3,}$/.test(nome);
+      if (!nomeValido) {
+        alert("Por favor, insira um nome válido com pelo menos 3 letras (somente letras e espaços).");
+        nomeInput.focus();
+        return;
+      }
+
+      // Salva cookies
       const idade = document.getElementById("idade").value;
       const tamanho = document.getElementById("tamanho").value;
       const meta = document.getElementById("meta").value;
@@ -179,6 +187,14 @@
       setCookie("idade", idade, 7);
       setCookie("tamanho", tamanho, 7);
       setCookie("meta", meta, 7);
+
+      // Mostrar "Processando..." e redirecionar
+      document.getElementById("formulario").classList.add("hidden");
+      document.getElementById("processando").classList.remove("hidden");
+
+      setTimeout(() => {
+        window.location.href = "receita.html";
+      }, 3000);
     });
   </script>
 
