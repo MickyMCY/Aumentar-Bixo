@@ -2,21 +2,31 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <title>Exercícios</title>
   <link rel="stylesheet" href="style.css" />
   <style>
+    /* Global box-sizing para evitar problemas com largura/padding */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       background-color: #000;
       color: #fff;
       font-family: Arial, sans-serif;
+      overflow-x: hidden; /* bloqueia rolagem lateral */
+      width: 100vw;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
     }
 
     .container {
       padding: 20px;
       max-width: 600px;
       margin: 0 auto;
+      width: 100%;
     }
 
     h1 {
@@ -71,6 +81,7 @@
       height: 200px;
       border-radius: 8px;
       border: none;
+      display: block;
     }
 
     .botao-voltar {
@@ -84,6 +95,7 @@
       font-weight: bold;
       margin: 20px 0;
       cursor: pointer;
+      box-sizing: border-box;
     }
 
     .botao-voltar:hover {
@@ -94,13 +106,14 @@
       position: fixed;
       bottom: 0;
       left: 0;
-      width: 100%;
+      width: 100vw;
       background-color: #111;
       display: flex;
       justify-content: space-around;
       padding: 10px 0;
       border-top: 1px solid #333;
       z-index: 999;
+      box-sizing: border-box;
     }
 
     .bottom-nav a {
@@ -111,6 +124,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      user-select: none;
     }
 
     .bottom-nav a.ativo {
@@ -125,13 +139,14 @@
       font-size: 2rem;
       z-index: 999;
       text-decoration: none;
+      user-select: none;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>🍆 Exercícios</h1>
-    <img src="pepino.jpg" alt="Imagem Ilustrativa" class="imagem-topo">
+    <img src="pepino.jpg" alt="Imagem Ilustrativa" class="imagem-topo" />
 
     <!-- Categoria Iniciantes -->
     <div class="categoria">
@@ -168,6 +183,6 @@
   </div>
 
   <!-- Botão flutuante WhatsApp -->
-  <a href="https://wa.me/258840000000" class="whatsapp-float" target="_blank">💬</a>
+  <a href="https://wa.me/258840000000" class="whatsapp-float" target="_blank" rel="noopener noreferrer">💬</a>
 </body>
 </html>
