@@ -2,21 +2,32 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Receita</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    body {
+    /* Reset básico */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
       margin: 0;
+      padding: 0;
+      overflow-x: hidden; /* trava rolagem horizontal */
+      width: 100vw;
       background-color: #000;
-      font-family: Arial, sans-serif;
       color: #fff;
+      font-family: Arial, sans-serif;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
     }
 
     .container {
       padding: 20px;
       max-width: 600px;
-      margin: 0 auto;
+      margin: 0 auto 80px auto; /* espaço inferior para menu fixo */
+      width: 100%;
     }
 
     h1 {
@@ -66,6 +77,11 @@
       animation: pulse 1.5s infinite;
       text-align: center;
       display: block;
+      transition: background-color 0.3s ease;
+    }
+
+    .botao-preparar:hover {
+      background-color: #cc0000;
     }
 
     @keyframes pulse {
@@ -91,17 +107,19 @@
       color: #ccc;
     }
 
+    /* Menu fixo inferior */
     .menu {
       position: fixed;
       bottom: 0;
       left: 0;
-      width: 100%;
+      width: 100vw;
       background-color: #111;
       display: flex;
       justify-content: space-around;
       padding: 10px 0;
       border-top: 1px solid #333;
       z-index: 999;
+      box-sizing: border-box;
     }
 
     .menu a {
@@ -112,6 +130,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      user-select: none;
     }
 
     .menu a.ativo {
@@ -144,13 +163,13 @@
         2. Misture com o suco do limão.<br>
         3. Adicione o café e o mel.<br>
         4. Mexa bem até formar uma mistura homogênea.<br><br>
-        ✅ Tome 1 vez ao dia, sempre de manhã, com o estômago vazio. <br>
+        ✅ Tome 1 vez ao dia, sempre de manhã, com o estômago vazio.<br>
         Faça isso durante 10 dias seguidos para melhores resultados.
       </p>
 
       <!-- BOTÃO DE VÍDEO FUNCIONAL -->
-      <a href="https://youtu.be/UxLV7v9G38U?si=f4IxRRgnk459JaoV" target="_blank">
-        <button class="botao-preparar">▶️ Como preparar a receita?</button>
+      <a href="https://youtu.be/UxLV7v9G38U?si=f4IxRRgnk459JaoV" target="_blank" rel="noopener noreferrer">
+        <button class="botao-preparar" type="button">▶️ Como preparar a receita?</button>
       </a>
     </div>
   </div>
