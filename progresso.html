@@ -1,10 +1,114 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Progresso</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Reset box-sizing e evitar overflow horizontal */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden; /* trava rolagem lateral */
+      width: 100vw;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 40px auto 80px auto;
+      padding: 0 20px;
+      width: 100%;
+    }
+
+    h1 {
+      text-align: center;
+      color: red;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .subtexto {
+      text-align: center;
+      color: #ccc;
+      margin-bottom: 30px;
+      font-size: 1rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(44px, 1fr));
+      gap: 12px;
+    }
+
+    .grid button {
+      background-color: #222;
+      color: #fff;
+      border: 2px solid red;
+      border-radius: 8px;
+      padding: 12px 0;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      user-select: none;
+    }
+
+    .grid button.ativo {
+      background-color: red;
+      color: #fff;
+      border-color: #cc0000;
+      font-weight: bold;
+    }
+
+    /* Menu inferior fixo */
+    .menu {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100vw;
+      background-color: #111;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+      border-top: 1px solid #333;
+      z-index: 999;
+      box-sizing: border-box;
+    }
+
+    .menu a {
+      text-align: center;
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      user-select: none;
+    }
+
+    .menu a.ativo {
+      color: red;
+      font-weight: bold;
+    }
+
+    /* Botão WhatsApp flutuante */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 70px;
+      right: 20px;
+      font-size: 2rem;
+      z-index: 999;
+      text-decoration: none;
+      user-select: none;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -13,7 +117,6 @@
     
     <div class="grid">
       <!-- Botões de 1 a 31 -->
-      <!-- Gerado manualmente para manter controle visual -->
       <button onclick="marcar(this)">1</button>
       <button onclick="marcar(this)">2</button>
       <button onclick="marcar(this)">3</button>
@@ -53,12 +156,12 @@
     <a href="index.html">🏠<br>Início</a>
     <a href="receita.html">📋<br>Receita</a>
     <a href="exercicios.html">🍆<br>Exercícios</a>
-    <a href="progresso.html">📅<br>Progresso</a>
+    <a href="progresso.html" class="ativo">📅<br>Progresso</a>
     <a href="guia.html">📖<br>Guia</a>
   </div>
 
   <!-- WHATSAPP -->
-  <a href="https://wa.me/258840000000" class="whatsapp-float" target="_blank">💬</a>
+  <a href="https://wa.me/258840000000" class="whatsapp-float" target="_blank" rel="noopener noreferrer">💬</a>
 
   <script>
     function marcar(btn) {
