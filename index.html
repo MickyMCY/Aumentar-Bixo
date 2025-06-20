@@ -1,24 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Técnica Xingondo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <!-- Meta viewport ajustado para evitar zoom e rolagem lateral -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="style.css" />
   <style>
-    body {
-      background: url('homem.jpg') no-repeat center center fixed;
-      background-size: cover;
+    /* Box sizing global para evitar que padding e bordas quebrem layout */
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
       margin: 0;
       padding: 0;
+      overflow-x: hidden; /* bloqueia rolagem lateral */
+      width: 100vw; /* largura da viewport */
+      height: 100%;
       font-family: Arial, sans-serif;
       color: #fff;
+      background: url('homem.jpg') no-repeat center center fixed;
+      background-size: cover;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
     }
 
     .container {
       max-width: 420px;
       margin: 80px auto 40px auto;
       padding: 0 20px;
+      width: 100%;
     }
 
     .formulario {
@@ -27,7 +39,6 @@
       background: rgba(0, 0, 0, 0.75);
       padding: 25px;
       border-radius: 12px;
-      box-sizing: border-box;
     }
 
     h1 {
@@ -55,7 +66,6 @@
       appearance: none;
       -webkit-appearance: none;
       -moz-appearance: none;
-      box-sizing: border-box;
     }
 
     button[type="submit"] {
@@ -87,7 +97,7 @@
     <div class="formulario" id="formulario">
       <form id="meuFormulario">
         <label for="nome">1. Qual é o teu nome?</label>
-        <input type="text" id="nome" placeholder="ex: João" required>
+        <input type="text" id="nome" placeholder="ex: João" required />
 
         <label for="idade">2. Qual é a tua idade?</label>
         <select id="idade" required>
@@ -127,7 +137,7 @@
   </div>
 
   <script>
-    document.getElementById("meuFormulario").addEventListener("submit", function(e){
+    document.getElementById("meuFormulario").addEventListener("submit", function(e) {
       e.preventDefault();
 
       const nomeInput = document.getElementById("nome");
@@ -149,19 +159,17 @@
         window.location.href = "receita.html";
       }, 3000);
     });
-  </script>
 
-  <script>
     // Função para criar cookie
     function setCookie(nome, valor, dias) {
       const data = new Date();
-      data.setTime(data.getTime() + (dias*24*60*60*1000));
+      data.setTime(data.getTime() + (dias * 24 * 60 * 60 * 1000));
       const expires = "expires=" + data.toUTCString();
       document.cookie = nome + "=" + encodeURIComponent(valor) + ";" + expires + ";path=/";
     }
 
     // Salvar os dados do formulário em cookies no submit (sem alterar o fluxo)
-    document.getElementById("meuFormulario").addEventListener("submit", function(e){
+    document.getElementById("meuFormulario").addEventListener("submit", function() {
       const nome = document.getElementById("nome").value.trim();
       const idade = document.getElementById("idade").value;
       const tamanho = document.getElementById("tamanho").value;
