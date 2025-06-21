@@ -78,14 +78,26 @@
     button[type="submit"]:hover {
       background: #cc0000;
     }
+
+    .hidden {
+      display: none;
+    }
+
+    #processando {
+      text-align: center;
+      color: white;
+      font-size: 1.2rem;
+      padding-top: 50px;
+    }
   </style>
 </head>
 <body>
 
   <div class="container">
     <h1>Técnica Xingondo</h1>
+
     <div class="formulario" id="formulario">
-      <form id="meuFormulario" method="POST" action="https://script.google.com/macros/s/AKfycbyaEIyV2o1iEiD2cDC6nRpTbWwLPdBQzJUjsCB61wMMK5dfPhYjp0Iqv-ar9zbr-dNpTA/exec">
+      <form id="meuFormulario">
         <label for="nome">1. Qual é o teu nome?</label>
         <input type="text" id="nome" name="nome" placeholder="ex: João" required />
 
@@ -120,7 +132,56 @@
         <button type="submit">Continuar</button>
       </form>
     </div>
+
+    <div id="processando" class="hidden">
+      <p>⏳ Processando...</p>
+    </div>
   </div>
+
+  <script>
+    const form = document.getElementById("meuFormulario");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const nome = form.nome.value.trim();
+
+      // Validação do nome
+      const nomeValido = /^[A-Za-zÀ-ÿ\s]{3,}$/.test(nome);
+      if (!nomeValido) {
+        alert("Por favor, insira um nome válido com pelo menos 3 letras.");
+        form.nome.focus();
+        return;
+      }
+
+      // Mostra "processando..."
+      document.getElementById("formulario").classList.add("hidden");
+      document.getElementById("processando").classList.remove("hidden");
+
+      // Prepara os dados
+      const dados = new URLSearchParams(new FormData(form));
+
+      try {
+        const resposta = await fetch("https://script.google.com/macros/s/AKfycbyaEIyV2o1iEiD2cDC6nRpTbWwLPdBQzJUjsCB61wMMK5dfPhYjp0Iqv-ar9zbr-dNpTA/exec", {
+          method: "POST",
+          body: dados,
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        });
+
+        // Aguarda só uns segundos mesmo que demore
+        setTimeout(() => {
+          window.location.href = "receita.html";
+        }, 3000);
+
+      } catch (erro) {
+        alert("Erro de conexão. Tente novamente.");
+        document.getElementById("processando").classList.add("hidden");
+        document.getElementById("formulario").classList.remove("hidden");
+      }
+    });
+  </script>
 
 </body>
 </html>
