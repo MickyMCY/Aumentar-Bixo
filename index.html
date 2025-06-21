@@ -89,12 +89,13 @@
   <div class="container">
     <h1>Técnica Xingondo</h1>
     <div class="formulario" id="formulario">
-      <form id="meuFormulario">
+      <!-- Note o action para enviar pro Google Script -->
+      <form id="meuFormulario" method="POST" action="https://script.google.com/macros/s/AKfycbyaEIyV2o1iEiD2cDC6nRpTbWwLPdBQzJUjsCB61wMMK5dfPhYjp0Iqv-ar9zbr-dNpTA/exec">
         <label for="nome">1. Qual é o teu nome?</label>
-        <input type="text" id="nome" placeholder="ex: João" required />
+        <input type="text" id="nome" name="nome" placeholder="ex: João" required />
 
         <label for="idade">2. Qual é a tua idade?</label>
-        <select id="idade" required>
+        <select id="idade" name="idade" required>
           <option value="" disabled selected>Seleciona...</option>
           <option value="18-20anos">18 a 20anos</option>
           <option value="21-25anos">21 a 25anos</option>
@@ -104,7 +105,7 @@
         </select>
 
         <label for="tamanho">3. Qual o tamanho atual do teu “Bixo”?</label>
-        <select id="tamanho" required>
+        <select id="tamanho" name="tamanho" required>
           <option value="" disabled selected>Seleciona...</option>
           <option value="2-5">2 a 5 cm</option>
           <option value="6-8">6 a 8 cm</option>
@@ -113,7 +114,7 @@
         </select>
 
         <label for="meta">4. Qual é a tua meta de tamanho?</label>
-        <select id="meta" required>
+        <select id="meta" name="meta" required>
           <option value="" disabled selected>Seleciona...</option>
           <option value="15">15 cm</option>
           <option value="18">18 cm</option>
@@ -163,7 +164,7 @@
       if (meta) document.getElementById("meta").value = meta;
     });
 
-    // ===== SUBMISSÃO DO FORMULÁRIO =====
+    // ===== MANIPULAR SUBMISSÃO =====
     document.getElementById("meuFormulario").addEventListener("submit", function (e) {
       e.preventDefault();
 
@@ -188,12 +189,15 @@
       setCookie("tamanho", tamanho, 7);
       setCookie("meta", meta, 7);
 
-      // Mostrar "Processando..." e redirecionar
+      // Mostrar "Processando..." e enviar formulário
       document.getElementById("formulario").classList.add("hidden");
       document.getElementById("processando").classList.remove("hidden");
 
+      // Após 3 segundos, envia o formulário
       setTimeout(() => {
-        window.location.href = "receita.html";
+        // Remove o event listener para evitar loop
+        this.removeEventListener('submit', arguments.callee);
+        this.submit();
       }, 3000);
     });
   </script>
