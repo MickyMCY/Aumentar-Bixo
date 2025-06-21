@@ -78,10 +78,6 @@
     button[type="submit"]:hover {
       background: #cc0000;
     }
-
-    .hidden {
-      display: none;
-    }
   </style>
 </head>
 <body>
@@ -89,7 +85,6 @@
   <div class="container">
     <h1>Técnica Xingondo</h1>
     <div class="formulario" id="formulario">
-      <!-- Note o action para enviar pro Google Script -->
       <form id="meuFormulario" method="POST" action="https://script.google.com/macros/s/AKfycbyaEIyV2o1iEiD2cDC6nRpTbWwLPdBQzJUjsCB61wMMK5dfPhYjp0Iqv-ar9zbr-dNpTA/exec">
         <label for="nome">1. Qual é o teu nome?</label>
         <input type="text" id="nome" name="nome" placeholder="ex: João" required />
@@ -125,82 +120,7 @@
         <button type="submit">Continuar</button>
       </form>
     </div>
-
-    <div id="processando" class="hidden">
-      <p style="text-align:center; color:white; font-size: 1.2rem;">⏳ Processando...</p>
-    </div>
   </div>
-
-  <script>
-    // ===== COOKIE UTIL =====
-    function setCookie(nome, valor, dias) {
-      const data = new Date();
-      data.setTime(data.getTime() + (dias * 24 * 60 * 60 * 1000));
-      const expires = "expires=" + data.toUTCString();
-      document.cookie = nome + "=" + encodeURIComponent(valor) + ";" + expires + ";path=/";
-    }
-
-    function getCookie(nome) {
-      const nomeEQ = nome + "=";
-      const ca = document.cookie.split(';');
-      for (let i = 0; i < ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) === ' ') c = c.substring(1);
-        if (c.indexOf(nomeEQ) === 0) return decodeURIComponent(c.substring(nomeEQ.length));
-      }
-      return null;
-    }
-
-    // ===== APLICAR COOKIES NOS CAMPOS AO CARREGAR =====
-    window.addEventListener("DOMContentLoaded", () => {
-      const nome = getCookie("nome");
-      const idade = getCookie("idade");
-      const tamanho = getCookie("tamanho");
-      const meta = getCookie("meta");
-
-      if (nome) document.getElementById("nome").value = nome;
-      if (idade) document.getElementById("idade").value = idade;
-      if (tamanho) document.getElementById("tamanho").value = tamanho;
-      if (meta) document.getElementById("meta").value = meta;
-    });
-
-    // ===== MANIPULAR SUBMISSÃO =====
-    document.getElementById("meuFormulario").addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      const nomeInput = document.getElementById("nome");
-      const nome = nomeInput.value.trim();
-
-      // Validação
-      const nomeValido = /^[A-Za-zÀ-ÿ\s]{3,}$/.test(nome);
-      if (!nomeValido) {
-        alert("Por favor, insira um nome válido com pelo menos 3 letras (somente letras e espaços).");
-        nomeInput.focus();
-        return;
-      }
-
-      // Salva cookies
-      const idade = document.getElementById("idade").value;
-      const tamanho = document.getElementById("tamanho").value;
-      const meta = document.getElementById("meta").value;
-
-      setCookie("nome", nome, 7);
-      setCookie("idade", idade, 7);
-      setCookie("tamanho", tamanho, 7);
-      setCookie("meta", meta, 7);
-
-      // Mostrar "Processando..." e enviar formulário
-      document.getElementById("formulario").classList.add("hidden");
-      document.getElementById("processando").classList.remove("hidden");
-
-      // Após 3 segundos, envia o formulário
-      setTimeout(() => {
-        // Remove o event listener para evitar loop
-        this.removeEventListener('submit', arguments.callee);
-        this.submit();
-      }, 3000);
-    });
-  </script>
 
 </body>
 </html>
