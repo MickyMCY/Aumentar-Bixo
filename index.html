@@ -159,7 +159,7 @@
       return null;
     }
 
-    // Preencher o formulário automaticamente se já existirem cookies
+    // Preencher o formulário automaticamente com cookies salvos
     window.addEventListener("DOMContentLoaded", () => {
       const nomeSalvo = lerCookie("nome");
       const idadeSalva = lerCookie("idade");
@@ -172,8 +172,8 @@
       if (metaSalva) form.meta.value = metaSalva;
     });
 
-    // Ao enviar o formulário
-    form.addEventListener("submit", async (e) => {
+    // Envio rápido e redirecionamento direto
+    form.addEventListener("submit", (e) => {
       e.preventDefault();
 
       const nome = form.nome.value.trim();
@@ -189,37 +189,19 @@
         return;
       }
 
-      // Salvar nos cookies
+      // Salvar cookies
       salvarCookie("nome", nome);
       salvarCookie("idade", idade);
       salvarCookie("tamanho", tamanho);
       salvarCookie("meta", meta);
 
-      // Mostrar "processando"
+      // Mostrar "processando" e redirecionar rapidamente
       document.getElementById("formulario").classList.add("hidden");
       document.getElementById("processando").classList.remove("hidden");
 
-      // Enviar dados ao Google Sheets
-      const dados = new URLSearchParams(new FormData(form));
-      try {
-        await fetch("https://script.google.com/macros/s/AKfycbyaEIyV2o1iEiD2cDC6nRpTbWwLPdBQzJUjsCB61wMMK5dfPhYjp0Iqv-ar9zbr-dNpTA/exec", {
-          method: "POST",
-          body: dados,
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        });
-
-        // Ir para receita.html em 1 segundo
-        setTimeout(() => {
-          window.location.href = "receita.html";
-        }, 1000);
-
-      } catch (erro) {
-        alert("Erro de conexão. Tente novamente.");
-        document.getElementById("processando").classList.add("hidden");
-        document.getElementById("formulario").classList.remove("hidden");
-      }
+      setTimeout(() => {
+        window.location.href = "receita.html";
+      }, 500); // apenas 0.5s para parecer rápido
     });
   </script>
 
