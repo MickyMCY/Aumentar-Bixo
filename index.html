@@ -141,10 +141,45 @@
   <script>
     const form = document.getElementById("meuFormulario");
 
+    // Funções para cookies
+    function salvarCookie(nome, valor, dias = 7) {
+      const data = new Date();
+      data.setTime(data.getTime() + (dias * 24 * 60 * 60 * 1000));
+      const expira = "expires=" + data.toUTCString();
+      document.cookie = `${nome}=${encodeURIComponent(valor)};${expira};path=/`;
+    }
+
+    function lerCookie(nome) {
+      const nomeEQ = nome + "=";
+      const ca = document.cookie.split(';');
+      for (let i = 0; i < ca.length; i++) {
+        let c = ca[i].trim();
+        if (c.indexOf(nomeEQ) === 0) return decodeURIComponent(c.substring(nomeEQ.length, c.length));
+      }
+      return null;
+    }
+
+    // Preencher o formulário automaticamente se já existirem cookies
+    window.addEventListener("DOMContentLoaded", () => {
+      const nomeSalvo = lerCookie("nome");
+      const idadeSalva = lerCookie("idade");
+      const tamanhoSalvo = lerCookie("tamanho");
+      const metaSalva = lerCookie("meta");
+
+      if (nomeSalvo) form.nome.value = nomeSalvo;
+      if (idadeSalva) form.idade.value = idadeSalva;
+      if (tamanhoSalvo) form.tamanho.value = tamanhoSalvo;
+      if (metaSalva) form.meta.value = metaSalva;
+    });
+
+    // Ao enviar o formulário
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
       const nome = form.nome.value.trim();
+      const idade = form.idade.value;
+      const tamanho = form.tamanho.value;
+      const meta = form.meta.value;
 
       // Validação do nome
       const nomeValido = /^[A-Za-zÀ-ÿ\s]{3,}$/.test(nome);
@@ -154,13 +189,18 @@
         return;
       }
 
-      // Mostra "processando..."
+      // Salvar nos cookies
+      salvarCookie("nome", nome);
+      salvarCookie("idade", idade);
+      salvarCookie("tamanho", tamanho);
+      salvarCookie("meta", meta);
+
+      // Mostrar "processando"
       document.getElementById("formulario").classList.add("hidden");
       document.getElementById("processando").classList.remove("hidden");
 
-      // Prepara os dados
+      // Enviar dados ao Google Sheets
       const dados = new URLSearchParams(new FormData(form));
-
       try {
         await fetch("https://script.google.com/macros/s/AKfycbyaEIyV2o1iEiD2cDC6nRpTbWwLPdBQzJUjsCB61wMMK5dfPhYjp0Iqv-ar9zbr-dNpTA/exec", {
           method: "POST",
@@ -170,9 +210,10 @@
           }
         });
 
+        // Ir para receita.html em 1 segundo
         setTimeout(() => {
           window.location.href = "receita.html";
-        }, 1000); // tempo de espera reduzido para 1 segundo
+        }, 1000);
 
       } catch (erro) {
         alert("Erro de conexão. Tente novamente.");
